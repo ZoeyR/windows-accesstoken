@@ -1,0 +1,11 @@
+[package]
+name = "windows-accesstoken"
+version = "0.1.0"
+authors = ["Zoey Riordan <zoey@dos.cafe>"]
+edition = "2018"
+license = "MIT"
+description = "Safe bindings to the windows access token APIs" 
+
+[dependencies]
+winapi = { version = "0.3", features = ["processthreadsapi", "errhandlingapi", "handleapi", "winnt", "securitybaseapi", "winerror"] }
+bitflags = "1.0"
