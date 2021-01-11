@@ -1,3 +1,5 @@
+#![cfg(windows)]
+
 use std::ptr;
 
 use information::TokenInformation;
