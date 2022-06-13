@@ -62,7 +62,7 @@ unsafe impl TokenInformation for Groups {
     unsafe fn from_buf(buf: &[u8]) -> Option<Self::Output> {
         let count = u32::from_ne_bytes(buf[0..4].try_into().unwrap());
 
-        let arr_start = buf[4..].as_ptr() as *const SID_AND_ATTRIBUTES;
+        let arr_start = buf[std::mem::align_of::<*const SID_AND_ATTRIBUTES>()..].as_ptr() as *const SID_AND_ATTRIBUTES;
         let mut output = Vec::new();
         for i in 0..count {
             let sid_attr = *arr_start.offset(i as isize);
